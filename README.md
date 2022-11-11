@@ -1,4 +1,4 @@
-# PeopleCounter with SS-DCNet
+# PeopleCounter with SSDCNet
 
 ## Introduction
 
