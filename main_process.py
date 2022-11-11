@@ -167,7 +167,7 @@ def main(opt):
                             c_queue = []
                             c_queue.append(count)
                             start_flag = False
-                    cv2.putText(frame, 'No.of People: '+str(round(2)), (50, 50),cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+                    cv2.putText(frame, 'No.of People: '+str(round(count)), (50, 50),cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
                     cv2.imshow('frame ',frame)
                     if cv2.waitKey(25) & 0xFF == ord('q'):
                         exit_flag=False
