@@ -6,11 +6,13 @@ import torch.nn.functional as F
 import math
 
 try:
-    from class_func import Class2Count
+    from Network.class_func import Class2Count
+    from class_func import Class2Count_mul
     from merge_func import count_merge_low2high_batch
     from base_Network_module import up,up_res
 except:
     from Network.class_func import Class2Count
+    # from Network.class_func import Class2Count_mul
     from Network.merge_func import count_merge_low2high_batch
     from Network.base_Network_module import up,up_res
 # ============================================================================

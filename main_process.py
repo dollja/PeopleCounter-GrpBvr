@@ -1,21 +1,13 @@
-import torch.nn as nn
 import torch
-import torch.nn.functional as F
 from torch.utils.data import  DataLoader
-import torch.optim as optim
 import cv2
 from PIL import Image
 import os
 import numpy as np
-from time import time, sleep
-import math
-import pandas as pd
-import csv
+from time import time
 from load_data import Countmap_Dataset
 from Network.SSDCNet import SSDCNet_classify
 from Val import test_phase
-import queue, threading
-import matplotlib.pyplot as plt
 import imutils
 
 
@@ -32,7 +24,7 @@ def test(frame, opt, rgb, transform_test, num_workers, label_indice, model_path)
     net = SSDCNet_classify(class_num,label_indice,div_times=div_times,\
             frontend_name='VGG16',block_num=5,\
             IF_pre_bn=False,IF_freeze_bn=False,load_weights=True,\
-            psize=opt['psize'],pstride = opt['pstride'],parse_method ='maxp').cuda()
+            psize=opt['psize'],pstride = opt['pstride'],parse_method ='maxp')
 
     # test the min epoch
     mod_path='best_epoch.pth' 
@@ -175,7 +167,7 @@ def main(opt):
                             c_queue = []
                             c_queue.append(count)
                             start_flag = False
-                    cv2.putText(frame, 'No.of People: '+str(round(count)), (50, 50),cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
+                    cv2.putText(frame, 'No.of People: '+str(round(2)), (50, 50),cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 255, 255), 2)
                     cv2.imshow('frame ',frame)
                     if cv2.waitKey(25) & 0xFF == ord('q'):
                         exit_flag=False
